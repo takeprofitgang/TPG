@@ -405,15 +405,34 @@
             <div class="box" data-aos="zoom-in" data-aos-delay="400">
               <span class="advanced">Limited</span>
               <h3>Lifetime</h3>
-              <h4><sup>$</sup>199.99<span> / month</span></h4>
+              <h4><sup>$</sup>119.99<span> / month</span></h4>
               <ul>
-                <li>sample text</li>
-                <li>sample text</li>
-                <li>sample text</li>
-                <li>sample text</li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
               </ul>
               <div class="btn-wrap">
-                <a href="#" class="btn-buy">Buy Now</a>
+                <<div id="paypal-button-container"></div>
+<script src="https://www.paypal.com/sdk/js?client-id=AT0L1U2D1Ahxt6AJIqToFGUwMdabvMxSbO2eXVjAQwSBQruxi5xUztbwAoWs9x1MxDxETjaxnjbZTZxz&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>
+<script>
+  paypal.Buttons({
+      style: {
+          shape: 'rect',
+          color: 'black',
+          layout: 'vertical',
+          label: 'subscribe'
+      },
+      createSubscription: function(data, actions) {
+        return actions.subscription.create({
+          'plan_id': 'P-1P837288E19123026MA2AAPQ'
+        });
+      },
+      onApprove: function(data, actions) {
+        alert(data.subscriptionID);
+      }
+  }).render('#paypal-button-container');
+</script> href="#" class="btn-buy">Buy Now</a>
               </div>
             </div>
           </div>
