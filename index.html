@@ -363,18 +363,13 @@
             </div>
           </div>
 
-         <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-<input type="hidden" name="cmd" value="_s-xclick">
-<input type="hidden" name="hosted_button_id" value="5TVN5ERYSJHKW">
-<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_subscribeCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-</form>
+     
 
 
           <div class="col-lg-3 col-md-6 mt-4 mt-lg-0">
             <div class="box" data-aos="zoom-in" data-aos-delay="300">
               <h3>Annual</h3>
-              <h4><sup>$</sup>99.99<span> / month</span></h4>
+              <h4><sup>$</sup>9.99<span> / month</span></h4>
               <ul>
                 <li>sample text</li>
                 <li>sample text</li>
@@ -382,7 +377,26 @@
                 <li class="na">sample text</li>
               </ul>
               <div class="btn-wrap">
-                <a href="#" class="btn-buy">Buy Now</a>
+                <<div id="paypal-button-container"></div>
+<script src="https://www.paypal.com/sdk/js?client-id=AT0L1U2D1Ahxt6AJIqToFGUwMdabvMxSbO2eXVjAQwSBQruxi5xUztbwAoWs9x1MxDxETjaxnjbZTZxz&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>
+<script>
+  paypal.Buttons({
+      style: {
+          shape: 'rect',
+          color: 'black',
+          layout: 'vertical',
+          label: 'subscribe'
+      },
+      createSubscription: function(data, actions) {
+        return actions.subscription.create({
+          'plan_id': 'P-48H39033WC541882KMAZPJKY'
+        });
+      },
+      onApprove: function(data, actions) {
+        alert(data.subscriptionID);
+      }
+  }).render('#paypal-button-container');
+</script> href="#" class="btn-buy">Buy Now</a>
               </div>
             </div>
           </div>
