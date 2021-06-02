@@ -271,24 +271,25 @@
               </ul>
               <div class="btn-wrap">
                 <div id="paypal-button-container"></div>
-                  <script src="https://www.paypal.com/sdk/js?client-id=AT0L1U2D1Ahxt6AJIqToFGUwMdabvMxSbO2eXVjAQwSBQruxi5xUztbwAoWs9x1MxDxETjaxnjbZTZxz&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>
-                  <script>
+                <script src="https://www.paypal.com/sdk/js?client-id=AT0L1U2D1Ahxt6AJIqToFGUwMdabvMxSbO2eXVjAQwSBQruxi5xUztbwAoWs9x1MxDxETjaxnjbZTZxz&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script> 
+                <script>
                   paypal.Buttons({
                       style: {
-                          shape: 'rect',
+                          shape: 'pill',
                           color: 'black',
                           layout: 'vertical',
-                          label: 'subscribe'
+                          label: 'paypal'
                       },
                       createSubscription: function(data, actions) {
                         return actions.subscription.create({
-                          'plan_id': 'P-48H39033WC541882KMAZPJKY'
+                          /* Creates the subscription */
+                          plan_id: 'P-8WT6314813827233HMC3NYXY'
                         });
                       },
                       onApprove: function(data, actions) {
-                        alert(data.subscriptionID);
+                        alert(data.subscriptionID); // You can add optional success message for the subscriber here
                       }
-                  }).render('#paypal-button-container');
+                  }).render('#paypal-button-container'); // Renders the PayPal button
                 </script>
               </div>
             </div>
