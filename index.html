@@ -262,7 +262,7 @@
             <div class="box" data-aos="zoom-in" data-aos-delay="100">
               <span class="advanced">Popular</span>
               <h3>TPG PRO</h3>
-              <h4><sup>$</sup>99.99<span> CAD/month</span></h4>
+              <h4><sup>$</sup>99.99<span> + tax/year (CAD)</span></h4>
               <ul>
                 <li> Monthly membership </li>
                 <li>Cancel at any time</li>
@@ -299,7 +299,7 @@
             <div class="box" data-aos="zoom-in" data-aos-delay="400">
               <span class="advanced">Limited</span>
               <h3>TPG PRO+</h3>
-              <h4><sup>$</sup>499.99<span> CAD/year</span></h4>
+              <h4><sup>$</sup>499.99<span> + tax/year (CAD)</span></h4>
               <ul>
                 <li> Annual membership </li>
                 <li>TPG immediately invests $200 into your Financial Freedom Journey with a FREE Cold Wallet</li>
@@ -308,24 +308,25 @@
               </ul>
               <div class="btn-wrap">
                 <div id="paypal-button-containers"></div>
-                  <script>
-                    paypal.Buttons({
-                        style: {
-                            shape: 'rect',
-                            color: 'black',
-                            layout: 'vertical',
-                            label: 'subscribe'
-                        },
-                        createSubscription: function(data, actions) {
-                          return actions.subscription.create({
-                            'plan_id': 'P-1P837288E19123026MA2AAPQ'
-                          });
-                        },
-                        onApprove: function(data, actions) {
-                          alert(data.subscriptionID);
-                        }
-                    }).render('#paypal-button-containers');
-                  </script>
+                <script>
+                  paypal.Buttons({
+                      style: {
+                          shape: 'pill',
+                          color: 'black',
+                          layout: 'vertical',
+                          label: 'paypal'
+                      },
+                      createSubscription: function(data, actions) {
+                        return actions.subscription.create({
+                          /* Creates the subscription */
+                          plan_id: 'P-3J016697KF164513YMC3N7XY'
+                        });
+                      },
+                      onApprove: function(data, actions) {
+                        alert(data.subscriptionID); // You can add optional success message for the subscriber here
+                      }
+                  }).render('#paypal-button-containers'); // Renders the PayPal button
+                </script>
               </div>
             </div>
           </div>
